@@ -15,7 +15,7 @@ class Channel:
         self.__info_to_print = youtube_channels.execute()
         self.title = self.__info_to_print["items"][0]["snippet"]["title"]
         self.description = self.__info_to_print["items"][0]["snippet"]["description"]
-        self.url = f"https://www.youtube.com/{self.__info_to_print['items'][0]['snippet']['customUrl']}"
+        self.url = f"https://www.youtube.com/channel/{self.__info_to_print['items'][0]['id']}"
         self.subscriber_count: int = int(self.__info_to_print["items"][0]["statistics"]["subscriberCount"])
         self.video_count: int = self.__info_to_print["items"][0]["statistics"]["videoCount"]
         self.view_count: int = self.__info_to_print["items"][0]["statistics"]["viewCount"]
