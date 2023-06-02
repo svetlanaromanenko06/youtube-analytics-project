@@ -20,6 +20,31 @@ class Channel:
         self.video_count: int = self.__info_to_print["items"][0]["statistics"]["videoCount"]
         self.view_count: int = self.__info_to_print["items"][0]["statistics"]["viewCount"]
 
+    def __str__(self):
+        """Возвращает название и ссылку на канал по шаблону <название_канала> (<ссылка_на_канал>)"""
+        return f"'{self.title} ({self.url})'"
+
+    def __add__(self, other):
+        return self.subscriber_count + other.subscriber_count
+
+    def __sub__(self, other):
+        return self.subscriber_count - other.subscriber_count
+
+    def __gt__(self, other):
+        return self.subscriber_count > other.subscriber_count
+
+    def __ge__(self, other):
+        return self.subscriber_count >= other.subscriber_count
+
+    def __lt__(self, other):
+        return self.subscriber_count < other.subscriber_count
+
+    def __le__(self, other):
+        return self.subscriber_count <= other.subscriber_count
+
+    def __eq__(self, other):
+        return self.subscriber_count == other.subscriber_count
+
     @property
     def channel_id(self):
         return self.__channel_id
